@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/* teams routes */
+Route::get('/teams/listTeams', [App\Http\Controllers\TeamController::class, 'list']);
+
+
+/* players routes */
+
+Route::get('/players/listPlayers', [App\Http\Controllers\PlayerController::class, 'list']);

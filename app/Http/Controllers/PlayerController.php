@@ -8,7 +8,7 @@ use App\Models\Player;
 class PlayerController extends Controller
 {
     public function list() {
-        $teams = Player::all();  //using model.
+        $players = Player::all();  //using model.
         return view('players.listPlayers', compact('players'));
     }
 }

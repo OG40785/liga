@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('position');
             $table->double('salary', 8, 2);
-            $table->integer('teamId')->unsigned()->nullable()->index();
-            $table->foreign('teamId')->references('id')->on('teams')->onUpdate('cascade')->onDelete('restrict');
+            $table->integer('team_id')->unsigned()->nullable()->index();
+            $table->foreign('team_id')->references('id')->on('teams')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 

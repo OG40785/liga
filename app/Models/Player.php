@@ -15,7 +15,7 @@ class Player extends Model
     protected $fillable = ['name', 'position','salary'];
 
 //relationship ManyToOne between Team and Player
-    public function team()
-     {(Team::class);
-            }  
+    public function team(){
+  
+            return $this->belongsTo(Team::class);}
 }

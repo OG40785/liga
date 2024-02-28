@@ -18,5 +18,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        //$this->call(PlayersTableSeeder::class);
+        //$this->call(TeamsTableSeeder::class);
+        \App\Models\Team::factory()
+        ->count(10)
+        ->hasPlayers(5)
+        ->create();
     }
 }
