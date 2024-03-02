@@ -6,7 +6,7 @@
     <p>There are no players!</p>
 @else
 
-<table class="table table-sm">
+<table class="table table-striped">
   <tr class="table-active">
     <th>Id</th>
     <th>Name</th>
@@ -20,7 +20,7 @@
     <td>{{ $player->name }}</td>
     <td>{{ $player->position }}</td>
     <td>{{ $player->salary}}</td>    
-    <td>{{ $player->team()->name }}</td>
+    <td>{{ $player->team->name }}</td>
   </tr>
 
     @endforeach
