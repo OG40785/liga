@@ -20,7 +20,13 @@
     <td>{{ $player->name }}</td>
     <td>{{ $player->position }}</td>
     <td>{{ $player->salary}}</td>    
-    <td>{{ $player->team->name }}</td>
+   
+@if(empty($player->team->name )){
+     <td> No team </td>}
+    @else
+    <td>
+    {{ $player->team->name }}</td>
+    @endif
   </tr>
 
     @endforeach

@@ -27,7 +27,13 @@ Route::get('/teams/listTeams', [App\Http\Controllers\TeamController::class, 'lis
 Route::get('/teams/delete/{id}', [App\Http\Controllers\TeamController::class, 'showDeleteTeamPage']);
 Route::get('/teams/deleteTeam/{id}', [App\Http\Controllers\TeamController::class, 'deleteTeam']);
 Route::get('/teams/edit/{id}', [App\Http\Controllers\TeamController::class, 'showEditTeamPage']);
+
+Route::post('/teams/editTeam/{id}', [App\Http\Controllers\TeamController::class, 'editTeam']);
+
+Route::get('/teams/addTeam', [App\Http\Controllers\TeamController::class, 'showAddTeamPage']);
+
+Route::post('/teams/addNewTeam', [App\Http\Controllers\TeamController::class, 'addTeam']);
 /* players routes */
 
 Route::get('/players/listPlayers', [App\Http\Controllers\PlayerController::class, 'list']);
-Route::get('/players/deleteFromTeam/{id}/{teamId}', [App\Http\Controllers\PlayerController::class, 'deleteFromTeam']);//no funciona
+Route::get('/players/deleteFromTeam/{id}', [App\Http\Controllers\PlayerController::class, 'deleteFromTeam']);//no funciona

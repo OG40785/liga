@@ -11,13 +11,14 @@ class PlayerController extends Controller
         $players = Player::all();  //using model.
         return view('players.listPlayers', compact('players'));
     }
-    public function deleteFromTeam($id,$teamIDd) {
+    public function deleteFromTeam($id) {
         $player = Player::find($id); 
-        $team =  Team::find($id); 
+        //$team =  Team::find($id); 
         $player->team_id = null;
         $player->save();
+        return back();
 
-        return view('teams.showEditPage', compact('team'));//no funciona no encuenra team id 
+        //return view('teams.showEditPage', compact('team'));//no funciona no encuenra team id 
     }
     
 }

@@ -36,7 +36,7 @@ class TeamController extends Controller
             $message = "An error occurred: " . $e->getMessage();
         }
         $teams = Team::all();
-        return view('teams.listTeams', compact('teams','message'));
+        return view('teams.listTeams', compact('teams', 'message'));
     }
 
     public function showEditTeamPage($id)
@@ -49,6 +49,65 @@ class TeamController extends Controller
     }
 
 
+    public function editTeam(Request $request, $id)
+    {
+        print_r($id);
 
+        $team = Team::find($id);
+        $validate = $request->validate([
+            'name' => 'required|unique:teams|max:255',
+            'stadium' => 'required',
+            'numMembers' => 'required|integer',
+            'budget' => 'required|numeric|between:0,9999999.99',
+        ]);
+
+        if ($validate) {
+            $team->name = $request->name;
+            $team->stadium = $request->stadium;
+            $team->numMembers = $request->numMembers;
+            $team->budget = $request->budget;
+            $team->save();
+        }
+
+        //print_r($team);
+
+        return back();
+    }
+
+    public function showAddTeamPage()
+    {
+
+
+        return view('teams.showAddPage');
+    }
+
+
+    public function addTeam(Request $request)
+    {
+
+
+        $validate = $request->validate([
+            'name' => 'required|unique:teams|max:255',
+            'stadium' => 'required',
+            'numMembers' => 'required|integer',
+            'budget' => 'required|numeric|between:0,9999999.99',
+        ]);
+
+        if ($validate) {
+            $team = new Team;
+            $team->name = $request->name;
+            $team->stadium = $request->stadium;
+            $team->numMembers = $request->numMembers;
+            $team->budget = $request->budget;
+            $team->save();
+
+            //print_r($team);
+
+            $teams = Team::all();
+            return view('teams.listTeams', compact('teams', 'message'));
+        } else {
+            return back()->withErrors($validate)->withInput();//no se si es correcto
+        }
+    }
 
 }

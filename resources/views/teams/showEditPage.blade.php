@@ -14,22 +14,40 @@
                         <label for="id" class="form-label">Id:</label>
                         <input type="text" class="form-control" id="id" name="id" value="{{$team->id}}" disabled>
                     </div>
+                    
                     <div class="mb-3">
                         <label for="name" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{$team->name}}">
+                        <input type="text" class="form-control" id="name" name="name" value="{{$team->name}}" class="@error('name') is-invalid @enderror">
                     </div>
+                @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
                     <div class="mb-3">
                         <label for="stadium" class="form-label">Stadium:</label>
-                        <input type="text" class="form-control" id="stadium" name="stadium" value="{{$team->stadium}}">
+                        <input type="text" class="form-control" id="stadium" name="stadium" value="{{$team->stadium}}" class="@error('stadium') is-invalid @enderror">
                     </div>
+                    @error('stadium')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
                     <div class="mb-3">
                         <label for="numMembers" class="form-label">Number of Members:</label>
-                        <input type="number" class="form-control" id="numMembers" name="numMembers" value="{{$team->numMembers}}">
+                        <input type="number" class="form-control" id="numMembers" name="numMembers" value="{{$team->numMembers}}" class="@error('numMembers') is-invalid @enderror">
                     </div>
+
+                    @error('numMembers')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                     <div class="mb-3">
                         <label for="budget" class="form-label">Budget:</label>
-                        <input type="text" class="form-control" id="budget" name="budget" value="{{$team->budget}}">
+                        <input type="text" class="form-control" id="budget" name="budget" value="{{$team->budget}}" class="@error('numMembers') is-invalid @enderror">
                     </div>
+
+                        @error('budget')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+
                 </fieldset>
                 <div class="mb-3">
                 <button type="submit" class="btn bsb-btn-xl btn-light">Update Team Info</button></div>
@@ -57,7 +75,7 @@
                             <td>{{ $player->id }}</td>
                             <td>{{ $player->name }}</td>
                             <td>
-                                <a href="/players/deleteFromTeam/{{$player->id}}/{{$team->id}}" class="btn bsb-btn-xl btn-light">Delete from Team</a><!-- NO FUNCIONA -->
+                                <a href="/players/deleteFromTeam/{{$player->id}}" class="btn bsb-btn-xl btn-light">Delete from Team</a><!-- NO FUNCIONA -->
                             </td>
                         </tr>
                     @endforeach
