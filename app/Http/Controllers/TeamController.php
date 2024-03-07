@@ -28,7 +28,7 @@ class TeamController extends Controller
     {
         try {
             DB::transaction(function () use ($id) {
-                $players = Player::where('team_id', $id)->delete();
+                $players = Player::where('team_id', $id)->delete();//cambiar 
                 $team = Team::find($id)->delete();
             });
             $message = "Team and players deleted";
@@ -55,11 +55,15 @@ class TeamController extends Controller
 
         $team = Team::find($id);
         $validate = $request->validate([
-            'name' => 'required|unique:teams|max:255',
+            'name' => 'required|unique:teams,name,' . $team->id . ',id|max:255',
             'stadium' => 'required',
             'numMembers' => 'required|integer',
-            'budget' => 'required|numeric|between:0,9999999.99',
+            'budget' => 'required|numeric|between:0,999999.99',
         ]);
+
+
+/*         unique
+        'field' => 'unique:table,column[,ignoreColumnID][,customColumnName]' */
 
         if ($validate) {
             $team->name = $request->name;
@@ -67,11 +71,13 @@ class TeamController extends Controller
             $team->numMembers = $request->numMembers;
             $team->budget = $request->budget;
             $team->save();
+            return back()->with('message', 'Team has been edited');
+            
         }
-
-        //print_r($team);
-
-        return back();
+        else{
+            return back()->with('message', 'Error');
+        }
+                
     }
 
     public function showAddTeamPage()
@@ -104,9 +110,12 @@ class TeamController extends Controller
             //print_r($team);
 
             $teams = Team::all();
+
+            $message = "Team has been added";
             return view('teams.listTeams', compact('teams', 'message'));
         } else {
-            return back()->withErrors($validate)->withInput();//no se si es correcto
+            return back()->withErrors($validate)->withInput();
+            //return back()->with('success', 'Team has been added');//no se si es correcto
         }
     }
 

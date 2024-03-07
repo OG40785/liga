@@ -2,9 +2,16 @@
  
 @section('content')
 
+@if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+
+
 <div class="container">
     <div class="row">
-        <!-- Формуляр слева страницы -->
+
         <div class="col-md-6">
             <h3>Team Info</h3>
             <form method="post" action="/teams/editTeam/{{$team->id}}">
@@ -58,7 +65,10 @@
             <a href="/teams/listTeams" class="btn bsb-btn-xl btn-light">Cancel</a></div>
         </div>
 
-        <!-- Таблица справа страницы -->
+
+
+
+
         <div class="col-md-6">
             <h3>Players</h3>
             <table class="table table-striped">

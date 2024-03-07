@@ -39,3 +39,4 @@ Route::get('/players/listPlayers', [App\Http\Controllers\PlayerController::class
 Route::get('/players/deleteFromTeam/{id}', [App\Http\Controllers\PlayerController::class, 'deleteFromTeam']);//no funciona
 
 Route::get('/players/addPlayer', [App\Http\Controllers\PlayerController::class, 'showAddPlayerPage']);
+Route::post('/players/addNewPlayer', [App\Http\Controllers\PlayerController::class, 'addPlayer']);
