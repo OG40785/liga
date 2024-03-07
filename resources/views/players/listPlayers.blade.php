@@ -2,6 +2,12 @@
  
 @section('content')
  
+
+
+<div class="mb-3">
+            <a href="/players/addPlayer" class="btn bsb-btn-xl btn-light">Add New Player</a></div>
+
+
 @if(empty($players))
     <p>There are no players!</p>
 @else

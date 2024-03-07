@@ -5,9 +5,19 @@
 @if(!empty($message))
     <p>{{$message}}</p>
     @endif
+
+@if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+</div>
+
+@endif
+
 @if(empty($teams))
     <p>There are no teams!</p>
 @else
+
+
 
 <table class="table table-striped">
   <tr class="table-active">

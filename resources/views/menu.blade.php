@@ -6,17 +6,17 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
-        <li class="nav-item">
+<!--         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/teams/manageTeams">Manage teams</a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/teams/listTeams">List teams</a>
+          <a class="nav-link active" aria-current="page" href="/teams/listTeams">Manage teams</a>
         </li>
-        <li class="nav-item">
+<!--         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/players/managePlayers">Manage players</a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/players/listPlayers">List players</a>
+          <a class="nav-link active" aria-current="page" href="/players/listPlayers">Manage players</a>
         </li>
 
 

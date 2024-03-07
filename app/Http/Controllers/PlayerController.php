@@ -16,9 +16,16 @@ class PlayerController extends Controller
         //$team =  Team::find($id); 
         $player->team_id = null;
         $player->save();
+        session()->flash('message', 'Player deleted');//no funciona 
+
         return back();
 
         //return view('teams.showEditPage', compact('team'));//no funciona no encuenra team id 
+    }
+
+    public function showAddPlayerPage() {
+        $players = Player::all();  //using model.
+        return view('players.listPlayers', compact('players'));
     }
     
 }
