@@ -2,9 +2,15 @@
  
 @section('content')
 
-@if(session('success'))
+@if(session('message'))
     <div class="alert alert-success">
-        {{ session('success') }}
+        {{ session('message') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
     </div>
 @endif
 
@@ -54,6 +60,8 @@
                 </fieldset>
                 <div class="mb-3">
                 <button type="submit" class="btn bsb-btn-xl btn-light">Add New Player</button></div>
+                <div class="mb-3">
+            <a href="/players/listPlayers" class="btn bsb-btn-xl btn-light">Cancel</a></div>
             </form>
             
         </div>

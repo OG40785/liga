@@ -24,7 +24,7 @@ class TeamController extends Controller
         return view('teams.showDeletePage', compact('team'));
     }
 
-    public function deleteTeam($id)
+    public function deleteTeamOld($id)
     {
         try {
             DB::transaction(function () use ($id) {
@@ -39,6 +39,35 @@ class TeamController extends Controller
         return view('teams.listTeams', compact('teams', 'message'));
     }
 
+    
+    public function deleteTeam($id)
+    {
+        try {
+            $team = Team::find($id);
+            $players = Player::where('team_id', $id)->get();
+
+            //print_r($player);
+            if ($players->count() > 0) {
+                //echo ("hola");
+                $teams = Team::all();
+                $message = "The team has players. Remove  players from the team before deleting";
+                session()->flash('error', $message);
+                return view('teams.listTeams', compact('teams'));
+            } else {
+                $team->delete();
+                $message = "Team deleted";
+                session()->flash('message', $message);
+                $teams = Team::all();
+                return view('teams.listTeams', compact('teams'));
+            }
+        } catch (\Exception $e) {
+            $message = "An error occurred: " . $e->getMessage();
+            $teams = Team::all();
+            session()->flash('error', $message);
+            return view('teams.listTeams', compact('teams'));
+        }
+    }
+
     public function showEditTeamPage($id)
     {
         //print_r($id);
@@ -51,7 +80,7 @@ class TeamController extends Controller
 
     public function editTeam(Request $request, $id)
     {
-        print_r($id);
+        //print_r($id);
 
         $team = Team::find($id);
         $validate = $request->validate([
@@ -75,7 +104,7 @@ class TeamController extends Controller
             
         }
         else{
-            return back()->with('message', 'Error');
+            return back()->with('error', 'Error');
         }
                 
     }

@@ -33,6 +33,7 @@ Route::post('/teams/editTeam/{id}', [App\Http\Controllers\TeamController::class,
 Route::get('/teams/addTeam', [App\Http\Controllers\TeamController::class, 'showAddTeamPage']);
 
 Route::post('/teams/addNewTeam', [App\Http\Controllers\TeamController::class, 'addTeam']);
+
 /* players routes */
 
 Route::get('/players/listPlayers', [App\Http\Controllers\PlayerController::class, 'list']);
@@ -40,3 +41,8 @@ Route::get('/players/deleteFromTeam/{id}', [App\Http\Controllers\PlayerControlle
 
 Route::get('/players/addPlayer', [App\Http\Controllers\PlayerController::class, 'showAddPlayerPage']);
 Route::post('/players/addNewPlayer', [App\Http\Controllers\PlayerController::class, 'addPlayer']);
+
+Route::get('/players/edit/{id}', [App\Http\Controllers\PlayerController::class, 'showEditPlayerPage']);
+Route::post('/players/editPlayer/{id}', [App\Http\Controllers\PlayerController::class, 'editPlayer']);
+Route::get('/players/delete/{id}', [App\Http\Controllers\PlayerController::class, 'showDeletePlayerPage']);
+Route::get('/players/deletePlayer/{id}', [App\Http\Controllers\PlayerController::class, 'deletePlayer']);

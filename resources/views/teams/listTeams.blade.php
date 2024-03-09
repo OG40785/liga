@@ -4,14 +4,20 @@
 
 @if(!empty($message))
     <p>{{$message}}</p>
-    @endif
+@endif
 
 @if(session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
-</div>
-
+    </div>
 @endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 
 @if(empty($teams))
     <p>There are no teams!</p>
