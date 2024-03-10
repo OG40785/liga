@@ -20,7 +20,7 @@
 
 
 <div class="mb-3">
-    <a href="/players/addPlayer" class="btn bsb-btn-xl btn-light">Add New Player</a>
+    <a href="/players/addPlayer" class="btn bsb-btn-xl btn-success">Add New Player</a>
 </div>
 
 @if(empty($players))
@@ -52,18 +52,18 @@
                 </td>
                 
                 <td>
-                    <a href="/players/edit/{{$player->id}}" class="btn bsb-btn-xl btn-light">Edit player</a>
+                    <a href="/players/edit/{{$player->id}}" class="btn bsb-btn-xl btn-success">Edit player</a>
                 </td>
 
                 <td>
-                   <a href="/players/delete/{{$player->id}}" class="btn bsb-btn-xl btn-light">Delete player</a></td>
+                   <a href="/players/delete/{{$player->id}}" class="btn bsb-btn-xl btn-success">Delete player</a></td>
                 </td>
                 @if(empty($player->team->name))
                 <td>No team  </td>           
                
                     @else
 
-                    <td> <a href="/teams/edit/{{$player->team->id}}" class="btn bsb-btn-xl btn-light">Edit team</a>
+                    <td> <a href="/teams/edit/{{$player->team->id}}" class="btn bsb-btn-xl btn-success">Edit team</a>
                     
                     @endif
                

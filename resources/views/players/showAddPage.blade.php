@@ -59,9 +59,9 @@
 
                 </fieldset>
                 <div class="mb-3">
-                <button type="submit" class="btn bsb-btn-xl btn-light">Add New Player</button></div>
+                <button type="submit" class="btn bsb-btn-xl btn-success">Add New Player</button></div>
                 <div class="mb-3">
-            <a href="/players/listPlayers" class="btn bsb-btn-xl btn-light">Cancel</a></div>
+            <a href="/players/listPlayers" class="btn bsb-btn-xl btn-success">Cancel</a></div>
             </form>
             
         </div>

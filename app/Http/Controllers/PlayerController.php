@@ -8,11 +8,25 @@ use App\Models\Team;
 
 class PlayerController extends Controller
 {
+    /**
+ * Returns a list of all players.
+ * Does not accept any parameters.
+ * Returns a view with the list of players.
+ */
     public function list()
     {
         $players = Player::all();  //using model.
         return view('players.listPlayers', compact('players'));
     }
+
+
+
+    /**
+ * Deletes a player from a team.
+ * Accepts the player's ID as a parameter.
+ * Returns back to the previous page with a message of successful deletion or an error.
+ */
+
     public function deleteFromTeam($id)
     {
         try {
@@ -29,12 +43,24 @@ class PlayerController extends Controller
         }
     }
 
+/**
+ * Shows the page for adding a new player.
+ * Does not accept any parameters.
+ * Returns a view with a form for adding a new player.
+ */
 
     public function showAddPlayerPage()
     {
 
         return view('players.showAddPage');
     }
+
+
+    /**
+ * Adds a new player.
+ * Accepts a request object.
+ * Returns back to the previous page with a message of successful addition or an error.
+ */
 
     public function addPlayer(Request $request)
     {
@@ -59,6 +85,12 @@ class PlayerController extends Controller
         }
     }
 
+
+    /**
+ * Shows the page for editing a player.
+ * Accepts the player's ID as a parameter.
+ * Returns a view with a form for editing the player's details.
+ */
     public function showEditPlayerPage($id)
     {
         $player = Player::find($id);
@@ -66,7 +98,11 @@ class PlayerController extends Controller
     }
 
 
-
+/**
+ * Edits an existing player's details.
+ * Accepts a request object and the player's ID as parameters.
+ * Returns back to the previous page with a message of successful edit or an error.
+ */
 
     public function editPlayer(Request $request, $id)
     {
@@ -97,6 +133,12 @@ class PlayerController extends Controller
 
     }
 
+    /**
+ * Shows the page for deleting a player.
+ * Accepts the player's ID as a parameter.
+ * Returns a view with information about the player to be deleted.
+ */
+
     public function showDeletePlayerPage($id)
     {
         $player = Player::find($id);
@@ -104,6 +146,12 @@ class PlayerController extends Controller
 
 
     }
+
+    /**
+ * Deletes a player.
+ * Accepts the player's ID as a parameter.
+ * Returns back to the previous page with a message of successful deletion or an error.
+ */
 
     public function deletePlayer($id)
     {

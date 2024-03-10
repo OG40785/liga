@@ -2,6 +2,10 @@
  
 @section('content')
 
+@if(!empty($message))
+    <p class="alert alert-success">{{$message}}</p>
+@endif
+
 @if(session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
@@ -62,12 +66,12 @@
 
                 </fieldset>
                 <div class="mb-3">
-                <button type="submit" class="btn bsb-btn-xl btn-light">Update Team Info</button></div>
+                <button type="submit" class="btn bsb-btn-xl btn-success">Update Team Info</button></div>
             </form>
             <div class="mb-3">
-            <a href="/teams/addTeam" class="btn bsb-btn-xl btn-light">Add New Team</a></div>
+            <a href="/teams/addTeam" class="btn bsb-btn-xl btn-success">Add New Team</a></div>
             <div class="mb-3">
-            <a href="/teams/listTeams" class="btn bsb-btn-xl btn-light">Cancel</a></div>
+            <a href="/teams/listTeams" class="btn bsb-btn-xl btn-success">Cancel</a></div>
         </div>
 
 
@@ -90,12 +94,15 @@
                             <td>{{ $player->id }}</td>
                             <td>{{ $player->name }}</td>
                             <td>
-                                <a href="/players/deleteFromTeam/{{$player->id}}" class="btn bsb-btn-xl btn-light">Delete from Team</a><!-- NO FUNCIONA -->
+                                <a href="/players/deleteFromTeam/{{$player->id}}" class="btn bsb-btn-xl btn-success">Delete from Team</a><!-- NO FUNCIONA -->
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
+            <div class="mb-3">
+            <a href="/teams/addPlayerToTeamPage/{{$team->id}}" class="btn bsb-btn-xl btn-success">Add New Player To Team</a></div>
         </div>
     </div>
 </div>

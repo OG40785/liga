@@ -63,7 +63,7 @@
 
                 </fieldset>
                 <div class="mb-3">
-                <button type="submit" class="btn bsb-btn-xl btn-light">Add New Team</button></div>
+                <button type="submit" class="btn bsb-btn-xl btn-success">Add New Team</button></div>
             </form>
             
         </div>

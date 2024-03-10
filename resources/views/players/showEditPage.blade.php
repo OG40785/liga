@@ -55,11 +55,11 @@
 
                 </fieldset>
                 <div class="mb-3">
-                <button type="submit" class="btn bsb-btn-xl btn-light">Update player Info</button></div>
+                <button type="submit" class="btn bsb-btn-xl btn-success">Update player Info</button></div>
             </form>
  
             <div class="mb-3">
-            <a href="/players/listPlayers" class="btn bsb-btn-xl btn-light">Cancel</a></div>
+            <a href="/players/listPlayers" class="btn bsb-btn-xl btn-success">Cancel</a></div>
         </div>
 
 

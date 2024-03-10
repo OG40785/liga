@@ -42,8 +42,8 @@
     <td>{{ $team->stadium }}</td>
     <td>{{ $team->numMembers}}</td>    
     <td>{{ $team->budget }}</td>
-    <td><a href="/teams/edit/{{$team->id }} " class='btn bsb-btn-xl btn-light'>Edit team</a></td>
-    <td><a href="/teams/delete/{{$team->id }}" class='btn bsb-btn-xl btn-light'>Delete team</a></td>
+    <td><a href="/teams/edit/{{$team->id }} " class='btn bsb-btn-xl btn-success'>Edit team</a></td>
+    <td><a href="/teams/delete/{{$team->id }}" class='btn bsb-btn-xl btn-success'>Delete team</a></td>
   </tr>
 
     @endforeach
